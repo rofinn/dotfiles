@@ -5,6 +5,7 @@
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.global -}}
 brew {{ . | quote }}
+brew "zig"
 {{ end -}}
 {{ range .packages.UI -}}
 cask {{ . | quote }}
@@ -15,19 +16,27 @@ EOF
 
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
 
-sudo dnf copr enable sramanujam/zellij
+sudo dnf copr enable -y sramanujam/zellij
+
+sudo dnf copr enable -y pgdev/ghostty
+sudo dnf copr enable sneexy/zen-browser
+
+sudo dnf install -y zig
 
 {{ range .packages.global -}}
 sudo dnf install -y {{ . | quote }}
 {{ end -}}
 
 # TODO: Install UI packages if DISPLAY is set
+# curl -f https://zed.dev/install.sh | sh -s -- -y
+# sudo dnf install -y zen-browser
 
 {{ end -}}
 
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
 
-# sudo apt update && sudo apt install sudo build-essential
+# For minimal containers run:
+# > apt update && apt install sudo curl build-essential
 
 {{ range .packages.global -}}
 DEBIAN_FRONTEND=noninteractive sudo apt install -y --no-install-recommends {{ . | quote }}
@@ -36,6 +45,7 @@ DEBIAN_FRONTEND=noninteractive sudo apt install -y --no-install-recommends {{ . 
 # TODO: Install UI packages if DISPLAY is set
 {{ end -}}
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh -s -- -y
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 

@@ -1,0 +1,53 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "Catppuccin Frappé - No Italics",
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2"
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "dock": "bottom",
+    "detect_venv": {
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "fish"
+      }
+    },
+    "env": {},
+    "font_features": null,
+    "font_size": 12,
+    "line_height": "standard",
+    "option_as_meta": false,
+    "button": false,
+    "shell": {
+      "with_arguments": {
+        "program": "/usr/local/bin/fish",
+        "args": ["-l"]
+      }
+    },
+    "toolbar": {
+      "breadcrumbs": true
+    },
+    "working_directory": "current_project_directory"
+  },
+  // "theme": "One Dark",
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "buffer_font_size": 12,
+  "ui_font_size": 14
+}
