@@ -1,0 +1,42 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/sh
+
+{{ if eq .chezmoi.os "darwin" -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.global -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.UI -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{- end -}}
+
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") -}}
+
+sudo dnf copr enable sramanujam/zellij
+
+{{ range .packages.global -}}
+sudo dnf install -y {{ . | quote }}
+{{ end -}}
+
+# TODO: Install UI packages if DISPLAY is set
+
+{{ end -}}
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
+
+# sudo apt update && sudo apt install sudo build-essential
+
+{{ range .packages.global -}}
+DEBIAN_FRONTEND=noninteractive sudo apt install -y --no-install-recommends {{ . | quote }}
+{{ end -}}
+
+# TODO: Install UI packages if DISPLAY is set
+{{ end -}}
+
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh -s -- -y
+curl -sS https://starship.rs/install.sh | sh -s -- -y
+
+{{ end -}}

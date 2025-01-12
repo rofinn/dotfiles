@@ -1,0 +1,35 @@
+packages:
+  # These command line packages should be standard across all platforms, 
+  # but we may need to enable some repositories.
+  global:
+    - 'bat'
+    - 'curl'
+    - 'fish'
+    - 'fzf'
+    - 'git'
+    - 'git-lfs'
+    - 'jq'
+    - 'neovim'
+    - 'ripgrep'
+    - 'thefuck'
+    - 'tldr'
+    - 'wget'
+    - 'zellij'
+  # I'm less confident these names are standard across platforms
+  UI:
+    - '1password'
+    - 'basictex'
+    - 'calibre'
+    - 'font-fira-code-nerd-font'
+    - 'ghostty'
+    - 'vlc'
+    - 'wezterm'
+    - 'zed'
+    - 'zen-browser'
+  cargo:
+    - 'atuin'
+    - 'starship'
+    - 'zellij'
+
+# sudo dnf install -y bat curl fish fzf git git-lfs jq neovim ripgrep thefuck tldr wget
+# DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommend bat curl fish fzf git git-lfs jq neovim ripgrep thefuck tldr wget

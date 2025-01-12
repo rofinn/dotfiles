@@ -1,0 +1,129 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Sets user-defined palette
+# Palettes must be defined _after_ this line
+palette = "catppuccin_frappe"
+
+command_timeout = 300
+
+# format = """
+# $username(@$hostname)\
+# $directory\
+# [(\\[$git_branch\\])](lavender) \
+# (\\($cmd_duration\\) )\
+# $character"""
+format = """
+[](surface0)\
+$shell\
+$username\
+$hostname\
+[](bg:green fg:surface0)\
+$directory\
+[](fg:green bg:sky)\
+$git_branch\
+$git_status\
+[](fg:sky bg:sapphire)\
+$c\
+$nodejs\
+$python\
+[](fg:sapphire bg:blue)\
+$cmd_duration\
+[ ](fg:blue)\
+$line_break$character"""
+
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
+
+[os.symbols]
+Windows = "󰍲 "
+Macos = " "
+Linux = "󰌽 "
+
+[username]
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
+
+[character]
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+
+[shell]
+disabled = false
+bash_indicator = '\$'
+fish_indicator = '>'
+zsh_indicator = '%'
+powershell_indicator = '>_'
+style = "bold fg:white bg:surface0"
+format = '[$indicator]($style)'
+
+[directory]
+style = "fg:mantle bg:green"
+format = "[ $path ]($style)"
+home_symbol = '~'
+truncation_symbol = '…/'
+truncate_to_repo = false
+truncation_length = 5
+
+[git_branch]
+symbol = ""
+style = "bg:sky"
+format = '[[ $symbol $branch ](fg:base bg:sky)]($style)'
+
+[git_status]
+style = "bg:sky"
+format = '[[($all_status$ahead_behind )](fg:base bg:sky)]($style)'
+
+[cmd_duration]
+min_time = 5
+style = "bg:blue"
+format = '[[ 󱎫 $duration ](fg:mantle bg:blue)]($style)'
+
+[package]
+symbol = "󰏗 "
+style = 'green'
+
+[julia]
+symbol = " "
+style = "bg:sapphire"
+format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
+
+[python]
+symbol = " "
+style = "bg:sapphire"
+format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:sapphire"
+format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
