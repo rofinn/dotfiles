@@ -1,0 +1,29 @@
+[alias]
+    lg = !git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -30
+    br = !git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    hr = !git reset --hard
+    undo = !git reset HEAD~1 --mixed
+    done = !git push origin HEAD
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+[rerere]
+    enabled = true
+[init]
+    defaultBranch = main
+[fetch]
+    prune = true
+[status]
+    short = true
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[url "git@github.com:"]
+    insteadOf = "gh:"
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[user]
+    name = {{ .name | quote }}
+    email = {{ .email | quote }}
