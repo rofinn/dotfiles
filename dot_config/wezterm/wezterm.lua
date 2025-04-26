@@ -80,5 +80,7 @@ config.default_prog = { "/usr/local/bin/fish", "-l" }
 -- Set to true if we decide we want a tab bar again.
 config.enable_tab_bar = false
 
+config.send_composed_key_when_left_alt_is_pressed = true
+
 -- and finally, return the configuration to wezterm
 return config

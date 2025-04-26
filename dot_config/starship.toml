@@ -90,6 +90,11 @@ symbol = " "
 style = "bg:sapphire"
 format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
 
+[nodejs]
+symbol = ""
+style = "bg:sapphire"
+format = '[[ $symbol( $version) ](fg:base bg:sapphire)]($style)'
+
 [python]
 symbol = " "
 style = "bg:sapphire"
