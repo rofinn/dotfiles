@@ -75,7 +75,7 @@ config.inactive_pane_hsb = {
 	brightness = 0.8,
 }
 
-config.default_prog = { "/usr/local/bin/fish", "-l" }
+config.default_prog = { "/usr/bin/zsh", "-l" }
 
 -- Set to true if we decide we want a tab bar again.
 config.enable_tab_bar = false

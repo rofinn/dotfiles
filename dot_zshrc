@@ -1,0 +1,11 @@
+EDITOR="nvim"
+PATH="$PATH:~/bin:$/.juliaup/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/llvm/bin:~/miniconda3/bin"
+. "$HOME/.atuin/bin/env"
+
+eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
+
+STARTSHIP_LOG="error"
+eval "$(starship init zsh)"
+
+XDG_CONFIG_HOME="$HOME/.config"
