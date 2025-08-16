@@ -7,30 +7,58 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Catppuccin Frappé - No Italics",
+  "ssh_connections": [
+    {
+      "host": "130.250.171.128",
+      "username": "ubuntu",
+      "projects": [
+        {
+          "paths": ["/home/ubuntu"]
+        }
+      ]
+    },
+    {
+      "host": "localhost",
+      "username": "root",
+      "port": 2221,
+      "projects": [
+        {
+          "paths": ["/workspace"]
+        }
+      ]
+    }
+  ],
+  "theme": "Catppuccin Frappé",
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "assistant": {
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "agent": {
+    "default_profile": "ask",
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-thinking-latest"
+    },
     "dock": "left",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
-    },
-    "version": "2"
+      "model": "claude-opus-4-1-thinking"
+    }
   },
   "terminal": {
     "alternate_scroll": "off",
     "blinking": "terminal_controlled",
-    "copy_on_select": false,
+    "copy_on_select": true,
     "dock": "bottom",
     "detect_venv": {
       "on": {
-        "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "fish"
+        "directories": [".env", "env", ".venv", "venv"]
       }
     },
     "env": {},
+    "font_family": "FiraMono Nerd Font",
     "font_features": null,
     "font_size": 10,
     "line_height": "standard",
@@ -38,7 +66,7 @@
     "button": false,
     "shell": {
       "with_arguments": {
-        "program": "/usr/local/bin/fish",
+        "program": "/usr/bin/zsh",
         "args": ["-l"]
       }
     },
@@ -48,7 +76,7 @@
     "working_directory": "current_project_directory"
   },
   // "theme": "One Dark",
-  "buffer_font_family": "FiraCode Nerd Font Mono",
-  "buffer_font_size": 10,
+  "buffer_font_family": "FiraMono Nerd Font",
+  "buffer_font_size": 12,
   "ui_font_size": 12
 }
